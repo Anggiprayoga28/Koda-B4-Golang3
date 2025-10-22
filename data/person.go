@@ -6,11 +6,11 @@ type Person struct {
 	Name string
 }
 
-func SearchPerson(users []Person, keyword string) []string {
+func SearchPerson(users *[]Person, keyword *string) []string {
 	var results []string
 
-	for _, user := range users {
-		if strings.Contains(strings.ToLower(user.Name), strings.ToLower(keyword)) {
+	for _, user := range *users {
+		if strings.Contains(strings.ToLower(user.Name), strings.ToLower(*keyword)) {
 			results = append(results, user.Name)
 		}
 	}
