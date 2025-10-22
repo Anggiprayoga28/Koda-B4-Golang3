@@ -18,7 +18,7 @@ func main() {
 	fmt.Print("Siapa yang anda cari? ")
 	fmt.Scanln(&keyword)
 
-	results := data.SearchPerson(users, keyword)
+	results := data.SearchPerson(&users, &keyword)
 
 	fmt.Println(results)
 }
