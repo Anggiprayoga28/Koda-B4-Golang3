@@ -12,6 +12,10 @@ type Person struct {
 func SearchPerson(users *[]Person, keyword *string) []string {
 	defer fmt.Println("Pencarian selesai")
 
+	if strings.TrimSpace(*keyword) == "" {
+		panic("Tidak boleh kosong")
+	}
+
 	var results []string
 
 	for _, user := range *users {
