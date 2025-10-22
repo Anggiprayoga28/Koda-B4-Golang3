@@ -1,12 +1,17 @@
 package data
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 type Person struct {
 	Name string
 }
 
 func SearchPerson(users *[]Person, keyword *string) []string {
+	defer fmt.Println("Pencarian selesai")
+
 	var results []string
 
 	for _, user := range *users {
