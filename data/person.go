@@ -4,16 +4,14 @@ import "strings"
 
 type Person struct {
 	Name string
-	Age  int
-	City string
 }
 
-func SearchPerson(users []Person, keyword string) []Person {
-	var results []Person
+func SearchPerson(users []Person, keyword string) []string {
+	var results []string
 
 	for _, user := range users {
 		if strings.Contains(strings.ToLower(user.Name), strings.ToLower(keyword)) {
-			results = append(results, user)
+			results = append(results, user.Name)
 		}
 	}
 
