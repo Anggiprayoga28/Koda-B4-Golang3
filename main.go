@@ -7,7 +7,14 @@ import (
 )
 
 func main() {
-	defer fmt.Println("\nSelesai")
+	defer fmt.Println("Selesai")
+
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Error:", r)
+			os.Exit(1)
+		}
+	}()
 
 	users := []data.Person{
 		{Name: "John Doe"},
@@ -25,11 +32,5 @@ func main() {
 
 	fmt.Println(results)
 
-	if len(results) == 0 {
-		fmt.Println("Tidak ada hasil ditemukan.")
-		os.Exit(0)
-	} else {
-		fmt.Printf("Ditemukan %d hasil.\n", len(results))
-		os.Exit(0)
-	}
+	os.Exit(0)
 }
